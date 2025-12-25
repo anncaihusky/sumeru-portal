@@ -1,0 +1,80 @@
+HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumeru | The Axis of Becoming</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz@1,6..96&display=swap');
+        .serif { font-family: 'Bodoni Moda', serif; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-up { animation: fadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    </style>
+</head>
+<body class="bg-[#FDFCFB] text-stone-800 overflow-hidden">
+    <div id="root"></div>
+    <script type="text/babel">
+        function App() {
+            const [showAbout, setShowAbout] = React.useState(false);
+            const content = {
+                title: "The Axis of Becoming",
+                p1: "Discover your core purpose through our 'Axis of Becoming' framework, a revolutionary ecosystem integrating online courses, mobile apps, and serious games.",
+                p2: "Master the hidden algorithms of reality by aligning with the Dao, transforming yourself into a 'Super Player' who navigates life with strategic wisdom and spiritual depth.",
+                p3: "Transcend the digital and existential illusions to ultimately 'log out' of the game, attaining a state of absolute freedom and effortless spontaneity."
+            };
+
+            return (
+                <div className="relative min-h-screen flex flex-col items-center justify-center p-4">
+                    {/* 极简首页 */}
+                    <div className={`transition-all duration-1000 ${showAbout ? 'opacity-0 scale-95 blur-sm' : 'opacity-100 scale-100'}`}>
+                        <h1 className="text-5xl md:text-7xl tracking-[0.8em] font-extralight uppercase mb-12 ml-[0.8em]">Sumeru</h1>
+                        <div className="h-[1px] w-32 bg-stone-300 mx-auto mb-16"></div>
+                        <button 
+                            onClick={() => setShowAbout(true)}
+                            className="group relative px-8 py-3 text-[10px] tracking-[0.4em] uppercase border border-stone-200 hover:border-stone-800 transition-all duration-500"
+                        >
+                            <span className="relative z-10">Explore Purpose</span>
+                        </button>
+                    </div>
+
+                    {/* 隐藏的哲学弹窗 - 磨砂玻璃效果 */}
+                    {showAbout && (
+                        <div className="fixed inset-0 z-50 flex items-center justify-center p-6 md:p-12 bg-white/80 backdrop-blur-3xl animate-in fade-in duration-700">
+                            <button 
+                                onClick={() => setShowAbout(false)} 
+                                className="absolute top-10 right-10 text-stone-400 hover:text-stone-900 transition-colors text-3xl font-thin"
+                            >
+                                ✕
+                            </button>
+                            
+                            <div className="max-w-3xl text-center space-y-16">
+                                <h2 className="text-[10px] tracking-[0.6em] uppercase font-bold text-stone-400 animate-up">
+                                    {content.title}
+                                </h2>
+                                
+                                <div className="serif italic text-xl md:text-3xl leading-relaxed text-stone-700 space-y-12">
+                                    <p className="animate-up" style={{animationDelay: '0.3s'}}>{content.p1}</p>
+                                    <p className="animate-up" style={{animationDelay: '0.6s'}}>{content.p2}</p>
+                                    <p className="animate-up" style={{animationDelay: '0.9s'}}>{content.p3}</p>
+                                </div>
+                                
+                                <div className="pt-12 animate-up" style={{animationDelay: '1.5s'}}>
+                                    <div className="h-[1px] w-12 bg-stone-300 mx-auto"></div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
