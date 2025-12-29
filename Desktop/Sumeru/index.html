@@ -1,65 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sumeru | The Axis of Becoming</title>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz@1,6..96&display=swap');
-        .serif { font-family: 'Bodoni+Moda', serif; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-up { animation: fadeIn 0.8s ease-out forwards; }
-    </style>
-</head>
-<body class="bg-[#FDFCFB]">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sumeru Axis - 须弥山轴</title>
+  </head>
+  <body>
     <div id="root"></div>
-    <script type="text/babel">
-        function App() {
-            const [showAbout, setShowAbout] = React.useState(false);
-            const content = {
-                title: "The Axis of Becoming",
-                p1: "Discover your core purpose through our 'Axis of Becoming' framework, a revolutionary ecosystem integrating online courses, mobile apps, and serious games.",
-                p2: "Master the hidden algorithms of reality by aligning with the Dao, transforming yourself into a 'Super Player' who navigates life with strategic wisdom and spiritual depth.",
-                p3: "Transcend the digital and existential illusions to ultimately 'log out' of the game, attaining a state of absolute freedom and effortless spontaneity."
-            };
-
-            return (
-                <div className="relative min-h-screen flex items-center justify-center">
-                    {/* Main Entry */}
-                    <div className="text-center">
-                        <h1 className="text-4xl tracking-[1em] font-light text-stone-800 mb-8 uppercase">Sumeru</h1>
-                        <div className="h-[1px] w-48 bg-stone-300 mx-auto mb-12"></div>
-                        <button 
-                            onClick={() => setShowAbout(true)}
-                            className="text-stone-400 hover:text-stone-900 transition-all text-xs tracking-widest uppercase"
-                        >
-                            Explore Purpose
-                        </button>
-                    </div>
-
-                    {/* About Overlay */}
-                    {showAbout && (
-                        <div className="fixed inset-0 z-50 flex items-center justify-center p-8 bg-white/90 backdrop-blur-2xl transition-all">
-                            <button onClick={() => setShowAbout(false)} className="absolute top-12 right-12 text-stone-400 hover:text-stone-900 text-2xl">×</button>
-                            <div className="max-w-2xl text-center space-y-12">
-                                <h2 className="text-[10px] tracking-[0.5em] uppercase font-bold text-stone-400 mb-8">{content.title}</h2>
-                                <div className="serif italic text-xl md:text-2xl leading-relaxed text-stone-800 space-y-8">
-                                    <p className="animate-up" style={{animationDelay: '0.2s'}}>{content.p1}</p>
-                                    <p className="animate-up" style={{animationDelay: '0.5s'}}>{content.p2}</p>
-                                    <p className="animate-up" style={{animationDelay: '0.8s'}}>{content.p3}</p>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                </div>
-            );
-        }
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-</body>
+    <script type="module" src="/main.jsx"></script>
+  </body>
 </html>
